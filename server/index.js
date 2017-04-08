@@ -1,12 +1,18 @@
 import express from 'express';
 import path from 'path';
-
 import webpack from 'webpack';
 import webpackMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackConfig from '../webpack.config.dev.js';
+import bodyParser from 'body-parser';
+import auth from './routes/auth';
+import events from './routes/events';
+import users from './routes/users';
 
 let app = express();
+
+app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({ extended: false }));
 
 const compiler = webpack(webpackConfig);
 
@@ -17,6 +23,9 @@ app.use(webpackMiddleware(compiler, {
 }));
 
 app.use(webpackHotMiddleware(compiler));
+
+app.use("/api/auth", auth);
+app.use("/api/events", events);
 
 app.get("/felds", (req, res) => {
     res.send('Hi Felds');
