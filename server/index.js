@@ -1,6 +1,5 @@
 import express from 'express';
 import path from 'path';
-import bodyParser from 'body-parser';
 
 import webpack from 'webpack';
 import webpackMiddleware from 'webpack-dev-middleware';
@@ -8,8 +7,6 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackConfig from '../webpack.config.dev.js';
 
 let app = express();
-
-app.use(bodyParser.json());
 
 const compiler = webpack(webpackConfig);
 
@@ -21,8 +18,12 @@ app.use(webpackMiddleware(compiler, {
 
 app.use(webpackHotMiddleware(compiler));
 
-app.get("/*", (req, res) => {
-    res.sendFile(path.join(__dirname, "index.html"));
+app.get("/felds", (req, res) => {
+    res.send('Hi Felds');
 });
 
-app.listen(3000, () => console.log("Running on localhost:3000"));
+app.get("/*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../index.html"));
+});
+
+app.listen(3000, () => console.log("Running on port 3000"));
