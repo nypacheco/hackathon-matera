@@ -1,10 +1,12 @@
 import React from 'react';
 import NavigationBar from './NavigationBar';
 
+require('./../../stylesheet/main.scss');
+
 class App extends React.Component {
     render(){
         return (
-            <div className="container">
+            <div>
                 <NavigationBar />
                 {this.props.children}
             </div>
