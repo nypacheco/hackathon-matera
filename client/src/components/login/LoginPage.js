@@ -4,7 +4,7 @@ import LoginForm from './LoginForm';
 class LoginPage extends React.Component{
     render() {
         return (
-            <div className="row">
+            <div className="row page-login">
                 <LoginForm />
             </div>
         )

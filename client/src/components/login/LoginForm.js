@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { browserHistory } from 'react-router';
 import { login } from '../../actions';
 import TextFieldGroup from '../common/TextFieldGroup';
 
@@ -20,7 +21,8 @@ class LoginForm extends React.Component{
     onSubmit(e){
         e.preventDefault();
         this.props.login(this.state).then(
-            (res) => console.log(res)
+            (res) => console.log(res),
+            (err) => browserHistory.push("/logged")
         );
     }
     render() {
@@ -46,7 +48,7 @@ class LoginForm extends React.Component{
                             field="password"/>
                     </div>
                     <div className="form-group">
-                        <button className="btn btn-primary btn-block" type="submit">Acessar minha conta</button>
+                        <button className="btn btn-primary btn-block" type="submit">Logar</button>
                     </div>
                 </form>
             </div>

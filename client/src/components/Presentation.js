@@ -5,9 +5,9 @@ class Presentation extends React.Component {
         return (
             <div className="jumbotron hero">
                 <div className="container">
-                    <div className="title-header">
-                        <h1 className="title">Maujor. </h1>
-                        <h1 className="title-header"> Quem faz o banco é você.</h1>
+                    <div className="area-header">
+                        <h1 className="title-header">Maujor. </h1>
+                        <h1 className="subtitle-header"> Simplicidade é o que define.</h1>
                     </div>
                 </div>
             </div>

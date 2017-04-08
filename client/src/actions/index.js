@@ -1,8 +1,8 @@
 import axios from 'axios';
-/*import { ADD_ACTION } from './types';*/
 
 export function login(obj){
     return dispatch => {
+        localStorage.setItem('username', obj.username);
         return axios.post('/api/auth', obj).then(res => {
             console.log(res);
         });

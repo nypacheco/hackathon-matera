@@ -1,7 +1,7 @@
 import React from 'react';
 import NavigationBar from './NavigationBar';
 
-require('./../../stylesheet/main.scss');
+import './../../stylesheet/main.scss';
 
 class App extends React.Component {
     render(){

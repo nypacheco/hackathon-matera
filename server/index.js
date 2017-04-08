@@ -1,5 +1,6 @@
 import express from 'express';
 import path from 'path';
+import fetch from 'node-fetch';
 
 import webpack from 'webpack';
 import webpackMiddleware from 'webpack-dev-middleware';
@@ -17,10 +18,6 @@ app.use(webpackMiddleware(compiler, {
 }));
 
 app.use(webpackHotMiddleware(compiler));
-
-app.get("/felds", (req, res) => {
-    res.send('Hi Felds');
-});
 
 app.get("/*", (req, res) => {
     res.sendFile(path.join(__dirname, "../index.html"));
