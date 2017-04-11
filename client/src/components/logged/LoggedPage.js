@@ -47,7 +47,7 @@ class LoggedPage extends React.Component{
         return (
             <div className="logged">
                 <div className="container">
-                    <div className="row welcome">
+                    <div className="row">
                         <h3 className="welcome">Seja bem vindo, {this.state.username}</h3>
                             {!this.state.detail ? logged : <BalancePage />}
                     </div>
