@@ -5,14 +5,8 @@ import webpack from 'webpack';
 import webpackMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackConfig from '../webpack.config.dev.js';
-import bodyParser from 'body-parser';
-import auth from './routes/auth';
-import users from './routes/users';
 
 let app = express();
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
 
 const compiler = webpack(webpackConfig);
 
